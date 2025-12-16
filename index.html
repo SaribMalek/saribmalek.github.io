@@ -499,7 +499,8 @@
     <nav>
         <div class="container nav-content">
             <a href="#" class="logo">
-                <img src="logo.png" alt="SM Logo" style="height: 60px; width: auto; vertical-align: middle; padding: 5px 0;">
+                <img src="logo.png" alt="SM Logo"
+                    style="height: 60px; width: auto; vertical-align: middle; padding: 5px 0;">
             </a>
             <button class="mobile-menu-btn" aria-label="Toggle Menu">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -976,13 +977,17 @@
                     -->
                     <form action="https://formsubmit.co/saribmalek625@gmail.com" method="POST">
 
-                        <!-- Configuration: Turn off captcha, use table template for nice email -->
+                        <!-- Honeypot to prevent spam -->
+                        <input type="text" name="_honey" style="display:none">
+
+                        <!-- Disable Captcha -->
                         <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_template" value="table">
+
+                        <!-- Email Subject -->
                         <input type="hidden" name="_subject" value="New Contact from Portfolio!">
 
-                        <!-- Redirect back to this page (optional, removing this lets FormSubmit show a default success page which is safer for now) -->
-                        <!-- <input type="hidden" name="_next" value="your_website_url"> -->
+                        <!-- Redirect to this page after submission -->
+                        <input type="hidden" name="_next" value="https://saribmalek.github.io/">
 
                         <div class="form-group" style="margin-bottom: 1.5rem;">
                             <label for="name"
@@ -991,6 +996,7 @@
                             <input type="text" id="name" name="name" placeholder="John Doe" required
                                 style="width: 100%; padding: 1rem; background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; outline: none; transition: border-color 0.3s;">
                         </div>
+
                         <div class="form-group" style="margin-bottom: 1.5rem;">
                             <label for="email"
                                 style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">Your
@@ -998,12 +1004,14 @@
                             <input type="email" id="email" name="email" placeholder="john@example.com" required
                                 style="width: 100%; padding: 1rem; background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; outline: none; transition: border-color 0.3s;">
                         </div>
+
                         <div class="form-group" style="margin-bottom: 2rem;">
                             <label for="message"
                                 style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">Message</label>
                             <textarea id="message" name="message" rows="4" placeholder="How can I help you?" required
                                 style="width: 100%; padding: 1rem; background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; outline: none; transition: border-color 0.3s; resize: vertical;"></textarea>
                         </div>
+
                         <button type="submit" class="btn btn-primary"
                             style="width: 100%; border: none; font-size: 1rem;">Send Message</button>
                     </form>
