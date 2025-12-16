@@ -982,7 +982,12 @@
                 <!-- Contact Form -->
                 <div class="contact-form-wrapper animate-in delay-1"
                     style="background: var(--surface-color); padding: 2.5rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 4px 30px rgba(0,0,0,0.1);">
-                    <form action="https://formsubmit.co/saribmalek625@gmail.com" method="POST">
+
+                    <h3 style="font-size: 1.8rem; margin-bottom: 2rem; color: var(--text-primary);">Send a Message</h3>
+
+                    <form id="contactForm" action="https://formsubmit.co/saribmalek625@gmail.com" method="POST"
+                        onsubmit="return validateForm()">
+                        <!-- Honeypot to prevent spam -->
                         <input type="text" name="_honey" style="display:none">
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_subject" value="New Contact from Portfolio!">
@@ -990,20 +995,28 @@
 
                         <div class="form-group" style="margin-bottom: 1.5rem;">
                             <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" placeholder="John Doe" required
-                                class="form-control">
+                            <input type="text" id="name" name="name" placeholder="John Doe" class="form-control">
+                            <span class="error-msg" id="nameError"
+                                style="color: #ef4444; font-size: 0.85rem; display: none; margin-top: 0.5rem;">Please
+                                enter your name</span>
                         </div>
 
                         <div class="form-group" style="margin-bottom: 1.5rem;">
                             <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email" placeholder="john@example.com" required
+                            <input type="email" id="email" name="email" placeholder="john@example.com"
                                 class="form-control">
+                            <span class="error-msg" id="emailError"
+                                style="color: #ef4444; font-size: 0.85rem; display: none; margin-top: 0.5rem;">Please
+                                enter a valid email address</span>
                         </div>
 
                         <div class="form-group" style="margin-bottom: 2rem;">
                             <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="4" placeholder="How can I help you?" required
+                            <textarea id="message" name="message" rows="4" placeholder="How can I help you?"
                                 class="form-control" style="resize: vertical;"></textarea>
+                            <span class="error-msg" id="messageError"
+                                style="color: #ef4444; font-size: 0.85rem; display: none; margin-top: 0.5rem;">Please
+                                enter a message</span>
                         </div>
 
                         <button type="submit" class="btn btn-primary"
@@ -1013,6 +1026,48 @@
             </div>
         </div>
     </section>
+
+    <script>
+        function validateForm() {
+            let isValid = true;
+
+            // Get values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            // Get error elements
+            const nameError = document.getElementById('nameError');
+            const emailError = document.getElementById('emailError');
+            const messageError = document.getElementById('messageError');
+
+            // Reset errors
+            nameError.style.display = 'none';
+            emailError.style.display = 'none';
+            messageError.style.display = 'none';
+
+            // Validate Name
+            if (name === "") {
+                nameError.style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate Email
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email === "" || !emailPattern.test(email)) {
+                emailError.style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate Message
+            if (message === "") {
+                messageError.style.display = 'block';
+                isValid = false;
+            }
+
+            return isValid;
+        }
+    </script>
 
     <footer>
         <div class="container">
