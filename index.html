@@ -771,29 +771,29 @@
                         3. Copy your unique Form ID URL
                         4. Replace 'YOUR_FORM_ID' in the action attribute below with your real URL
                     -->
-                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <form action="mailto:saribmalek625@gmail.com" method="post" enctype="text/plain">
 
                         <!-- Hidden Identity for Email Subject -->
-                        <input type="hidden" name="_subject" value="New submission from Portfolio!">
+                        <input type="hidden" name="Subject" value="New submission from Portfolio!">
 
                         <div class="form-group" style="margin-bottom: 1.5rem;">
                             <label for="name"
                                 style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">Your
                                 Name</label>
-                            <input type="text" id="name" name="name" placeholder="John Doe" required
+                            <input type="text" id="name" name="Name" placeholder="John Doe" required
                                 style="width: 100%; padding: 1rem; background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; outline: none; transition: border-color 0.3s;">
                         </div>
                         <div class="form-group" style="margin-bottom: 1.5rem;">
                             <label for="email"
                                 style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">Your
                                 Email</label>
-                            <input type="email" id="email" name="email" placeholder="john@example.com" required
+                            <input type="email" id="email" name="Email" placeholder="john@example.com" required
                                 style="width: 100%; padding: 1rem; background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; outline: none; transition: border-color 0.3s;">
                         </div>
                         <div class="form-group" style="margin-bottom: 2rem;">
                             <label for="message"
                                 style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">Message</label>
-                            <textarea id="message" name="message" rows="4" placeholder="How can I help you?" required
+                            <textarea id="message" name="Message" rows="4" placeholder="How can I help you?" required
                                 style="width: 100%; padding: 1rem; background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; outline: none; transition: border-color 0.3s; resize: vertical;"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary"
