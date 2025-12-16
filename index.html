@@ -401,6 +401,41 @@
             transform: translateY(-2px);
         }
 
+        /* Pricing Section */
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            background: var(--surface-color);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .pricing-table th,
+        .pricing-table td {
+            padding: 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+
+        .pricing-table th {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .pricing-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .pricing-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-primary);
+        }
+
         /* Responsive */
         .mobile-menu-btn {
             display: none;
@@ -523,6 +558,7 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -865,6 +901,49 @@
                         in cloud deployment (AWS EC2, S3), code optimization for performance, and complex payment
                         gateway integrations.
                     </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="section-padding">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 3rem; text-align: center;">Pricing <span
+                    class="gradient-text">Plans</span></h2>
+
+            <div class="animate-in delay-1">
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem; color: var(--text-primary);">Working Hour Plans
+                </h3>
+
+                <div style="overflow-x: auto;">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 30%">Type</th>
+                                <th>Hourly Hiring</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="font-weight: 600; color: var(--text-primary);">Per Hour Price</td>
+                                <td style="font-size: 1.2rem; font-weight: 700; color: var(--primary-color);">$16 Per
+                                    Hour</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 600; color: var(--text-primary);">Project Based Price</td>
+                                <td>As per requirement</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 600; color: var(--text-primary);">Communication</td>
+                                <td>Basecamp, Zoom, Skype, Google Meet, Phone, Chat, etc. (as per client’s preference)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 600; color: var(--text-primary);">Project Tracking</td>
+                                <td>Google Sheets, Basecamp, Jira, GitHub, Daily Reports</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
