@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Sarib Malek</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-gray: #f8fafc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            color: var(--text-dark);
+            background: #fff;
+            max-width: 210mm;
+            /* A4 width */
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        /* Print styles */
+        @media print {
+            @page {
+                size: A4;
+                margin: 10mm;
+            }
+
+            body {
+                padding: 0;
+                width: 100%;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .no-print {
+                display: none !important;
+                visibility: hidden !important;
+                opacity: 0 !important;
+                height: 0 !important;
+                width: 0 !important;
+                position: absolute !important;
+            }
+        }
+
+        /* Prevent awkward breaks */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .section-title {
+            page-break-after: avoid;
+            break-after: avoid;
+        }
+
+        .entry,
+        .project-item,
+        .skills-grid,
+        .contact-info {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        section {
+            page-break-inside: auto;
+        }
+
+        /* Header */
+        header {
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+
+        .header-main h1 {
+            font-size: 32px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+
+        .header-main h2 {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-info {
+            text-align: right;
+            font-size: 13px;
+            color: var(--text-dark);
+        }
+
+        .contact-item {
+            margin-bottom: 4px;
+        }
+
+        .contact-item a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--primary);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 4px;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        /* Content Blocks */
+        .summary p {
+            font-size: 13px;
+            color: var(--text-dark);
+            text-align: justify;
+            margin-bottom: 8px;
+        }
+
+        .entry {
+            margin-bottom: 12px;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2px;
+        }
+
+        .entry-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .entry-company {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .entry-location {
+            font-size: 12px;
+            font-style: italic;
+            color: var(--text-light);
+        }
+
+        .entry-date {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-dark);
+            white-space: nowrap;
+        }
+
+        .entry-content {
+            font-size: 13px;
+            color: var(--text-dark);
+        }
+
+        .entry-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .entry-content li {
+            position: relative;
+            padding-left: 14px;
+            margin-bottom: 3px;
+        }
+
+        .entry-content li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            font-size: 13px;
+        }
+
+        .skill-category {
+            margin-bottom: 4px;
+        }
+
+        .skill-label {
+            font-weight: 700;
+            color: var(--text-dark);
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .skill-list {
+            color: var(--text-light);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .project-item {
+            break-inside: avoid;
+        }
+
+        .project-meta {
+            font-size: 12px;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+    </style>
+    <style media="print">
+        .no-print {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            height: 0 !important;
+            width: 0 !important;
+            position: absolute !important;
+        }
+    </style>
+    <script>
+        function printResume() {
+            const noPrint = document.querySelector('.no-print');
+            noPrint.style.display = 'none';
+            window.print();
+            // detailed timeout to bring it back after print dialog closes (approx)
+            setTimeout(() => {
+                noPrint.style.display = 'block';
+            }, 2000);
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Instructions for user -->
+    <div class="no-print"
+        style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 8px; font-family: sans-serif;">
+        <h3 style="margin-top: 0; color: #0369a1;">How to save this as a PDF</h3>
+        <p style="color: #334155; margin-bottom: 15px;">
+            <strong>Do not use "Save As..."</strong> - this will save an HTML file, not a PDF.<br>
+            Instead, click the button below and ensure <strong>"Save as PDF"</strong> is selected as the
+            destination.<br>
+            <em style="font-size: 0.9em; color: #64748b;">(This box will disappear in the final PDF)</em>
+        </p>
+        <button onclick="printResume()"
+            style="background-color: #2563eb; color: white; border: none; padding: 12px 25px; font-size: 16px; font-weight: 600; border-radius: 6px; cursor: pointer; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2); transition: background 0.2s;">
+            📄 Save as PDF / Print
+        </button>
+    </div>
+
+    <header>
+        <div class="header-main">
+            <h1>Sarib Malek</h1>
+            <h2>Software Engineer</h2>
+        </div>
+        <div class="contact-info">
+            <div class="contact-item">Kadival, Laldarvaja Khambhat, India</div>
+            <div class="contact-item"><a href="mailto:saribmalek625@gmail.com">saribmalek625@gmail.com</a></div>
+            <div class="contact-item"><a href="tel:+919909786552">+91 99097 86552</a></div>
+            <div class="contact-item"><a
+                    href="https://linkedin.com/in/sarib-malek-135066214">linkedin.com/in/sarib-malek</a></div>
+        </div>
+    </header>
+
+    <section class="summary">
+        <h3 class="section-title">Professional Summary</h3>
+        <p>
+            Results-driven Software Engineer with 4+ years of experience in designing, developing, and optimizing
+            scalable enterprise web and mobile applications. Specialized in <strong>PHP (Laravel, Symfony)</strong>,
+            <strong>Flutter Mobile Development</strong>, and <strong>Cloud Optimization (AWS)</strong>. Proven track
+            record of delivering high-performance, secure, and maintainable solutions for clients. Expert in managing
+            the full software development lifecycle, from requirements analysis to deployment. Available for freelance
+            projects to help businesses scale their digital infrastructure with robust, custom-tailored software
+            solutions.
+        </p>
+    </section>
+
+    <section>
+        <h3 class="section-title">Technical Expertise</h3>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <span class="skill-label">PHP Ecosystem</span>
+                <span class="skill-list">Laravel, Symfony, Core PHP, Doctrine ORM, WordPress</span>
+            </div>
+            <div class="skill-category">
+                <span class="skill-label">Frontend & JS Stack</span>
+                <span class="skill-list">React.js, Vue.js, Node.js, Bootstrap, JavaScript, jQuery, Ajax</span>
+            </div>
+            <div class="skill-category">
+                <span class="skill-label">Mobile Development</span>
+                <span class="skill-list">Flutter, Dart, Android Native</span>
+            </div>
+            <div class="skill-category">
+                <span class="skill-label">Programming Languages</span>
+                <span class="skill-list">Java, Python, Go, PHP, SQL</span>
+            </div>
+            <div class="skill-category">
+                <span class="skill-label">Databases</span>
+                <span class="skill-list">MySQL, PostgreSQL, MongoDB, SQLite</span>
+            </div>
+            <div class="skill-category">
+                <span class="skill-label">DevOps & Tools</span>
+                <span class="skill-list">AWS, Docker, Linux, Git, Jira, Bitbucket, Third-party APIs</span>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h3 class="section-title">Experience</h3>
+        <div class="entry">
+            <div class="entry-header">
+                <div>
+                    <span class="entry-title">Software Engineer</span>
+                    <span class="entry-company"> - Vivan Web Solution Pvt Ltd</span>
+                </div>
+                <span class="entry-date">Dec 2021 - Present</span>
+            </div>
+            <div class="entry-content">
+                <ul>
+                    <li>Spearheaded end-to-end development of enterprise-grade web applications using PHP frameworks and
+                        modern JavaScript.</li>
+                    <li>Design, code, and debug applications; conducted requirements analysis and software reliability
+                        analysis.</li>
+                    <li>Designed and maintained scalable database schemas and refactored legacy codebases to improve
+                        performance by over 30%.</li>
+                    <li>Evaluated and integrated emerging technologies (Flutter, Node.js) to modernize the tech stack.
+                    </li>
+                    <li>Collaborated directly with stakeholders for project scope, sprint planning, and implemented
+                        standards compliance.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div class="page-break"></div>
+
+    <section>
+        <h3 class="section-title">Featured Projects</h3>
+        <div class="projects-grid">
+
+            <div class="entry project-item">
+                <div class="entry-header">
+                    <span class="entry-title">National Sports Id</span>
+                    <span class="entry-date">PHP & MySQL</span>
+                </div>
+                <div class="project-meta">Software Engineer | Team Size: 5</div>
+                <div class="entry-content">
+                    <p>Major sports platform facilitating league administration for thousands of users. Streamlined
+                        creating leagues, teams, and managing players and coaches.</p>
+                    <ul>
+                        <li>Automated match sheet generation and ID printing, reducing manual administrative workload.
+                        </li>
+                        <li>Implemented multi-step verification and secure payment gateways, increasing platform trust
+                            and revenue.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="entry project-item">
+                <div class="entry-header">
+                    <span class="entry-title">MobileMoxie</span>
+                    <span class="entry-date">React JS & Symfony</span>
+                </div>
+                <div class="project-meta">Software Engineer</div>
+                <div class="entry-content">
+                    <p>Comprehensive mobile SEO and ASO toolset with dynamic UI and robust backend services.</p>
+                    <ul>
+                        <li>Built dynamic user interfaces using React JS.</li>
+                        <li>Developed robust backend services with Symfony, PHP, and MySQL.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="entry project-item">
+                <div class="entry-header">
+                    <span class="entry-title">Capexplan</span>
+                    <span class="entry-date">Symfony 2, React.js</span>
+                </div>
+                <div class="project-meta">Software Engineer</div>
+                <div class="entry-content">
+                    <p>Capital expenditure management software for enterprise-level financial planning.</p>
+                    <ul>
+                        <li>Implemented sales and purchase management and budget approval workflows.</li>
+                        <li>Developed comprehensive capex tracking and reporting modules.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="entry project-item">
+                <div class="entry-header">
+                    <span class="entry-title">B2B Banking Portal</span>
+                    <span class="entry-date">Vue.js & Laravel</span>
+                </div>
+                <div class="project-meta">Software Engineer</div>
+                <div class="entry-content">
+                    <p>Enterprise admin panel for banking operations with advanced data visualization.</p>
+                    <ul>
+                        <li>Integrated Chart.js for real-time financial analytics.</li>
+                        <li>Ensured secure management of banking operations.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="entry project-item">
+                <div class="entry-header">
+                    <span class="entry-title">Wall Street Italia</span>
+                    <span class="entry-date">Symfony & WordPress</span>
+                </div>
+                <div class="project-meta">Software Engineer</div>
+                <div class="entry-content">
+                    <p>Financial news and analysis platform.</p>
+                    <ul>
+                        <li>Leveraged Symfony and WordPress to build robust web solutions.</li>
+                        <li>Optimized performance using PHP and MySQL.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="entry project-item">
+                <div class="entry-header">
+                    <span class="entry-title">UTT Project</span>
+                    <span class="entry-date">Symfony Framework</span>
+                </div>
+                <div class="project-meta">Software Engineer</div>
+                <div class="entry-content">
+                    <p>Maintained and developed the UTT project ensuring high scalability.</p>
+                    <ul>
+                        <li>Focused on backend optimization using Symfony and Doctrine.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="entry project-item">
+                <div class="entry-header">
+                    <span class="entry-title">Transportation Advisory</span>
+                    <span class="entry-date">PHP & MySQL</span>
+                </div>
+                <div class="project-meta">Software Engineer | Team Size: 3</div>
+                <div class="entry-content">
+                    <p>Transportation product management system for creating employees and sub-users.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="page-break"></div>
+
+    <section>
+        <h3 class="section-title">Education</h3>
+        <div class="entry">
+            <div class="entry-header">
+                <div>
+                    <span class="entry-title">Bachelor of Computer Application</span>
+                    <span class="entry-company"> - Sardar Patel University</span>
+                </div>
+                <span class="entry-date">2021</span>
+            </div>
+            <div class="entry-content">
+                <p>CGPA: 9.42 (Grade A)</p>
+            </div>
+        </div>
+        <div class="entry">
+            <div class="entry-header">
+                <div>
+                    <span class="entry-title">Higher Secondary (12th Science)</span>
+                    <span class="entry-company"> - Madhavlal Shah High School</span>
+                </div>
+                <span class="entry-date">2018</span>
+            </div>
+            <div class="entry-content">
+                <p>Grade B (68%)</p>
+            </div>
+        </div>
+        <div class="entry">
+            <div class="entry-header">
+                <div>
+                    <span class="entry-title">Secondary School (10th SSC)</span>
+                    <span class="entry-company"> - Madhavlal Shah High School</span>
+                </div>
+                <span class="entry-date">2016</span>
+            </div>
+            <div class="entry-content">
+                <p>Grade B (47%)</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h3 class="section-title">Personal Information</h3>
+        <div class="skills-grid" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="skill-category">
+                <span class="skill-label">Date of Birth</span>
+                <span class="skill-list">02-Mar-2001</span>
+            </div>
+            <div class="skill-category">
+                <span class="skill-label">Nationality</span>
+                <span class="skill-list">Indian</span>
+            </div>
+            <div class="skill-category">
+                <span class="skill-label">Languages</span>
+                <span class="skill-list">English, Hindi, Gujarati</span>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
