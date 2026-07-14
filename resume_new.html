@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarib Malek Resume</title>
+    <style>
+        :root {
+            --bg: #edf5ff;
+            --surface: #ffffff;
+            --soft: #f7fbff;
+            --text: #17324d;
+            --muted: #5c728b;
+            --accent: #2d7fe3;
+            --line: #d6e4f4;
+            --shadow: 0 16px 36px rgba(61, 104, 153, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            padding: 20px;
+        }
+
+        .page {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 30px 32px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            box-shadow: var(--shadow);
+        }
+
+        .header {
+            display: table;
+            width: 100%;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .header-left,
+        .header-right {
+            display: table-cell;
+            vertical-align: top;
+        }
+
+        .header-left {
+            width: 58%;
+            padding-right: 20px;
+        }
+
+        .header-right {
+            width: 42%;
+            text-align: right;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            font-size: 32px;
+            line-height: 1;
+            margin-bottom: 8px;
+            font-weight: 800;
+        }
+
+        .title {
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .contact-line {
+            font-size: 15px;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+
+        .section {
+            padding-top: 20px;
+        }
+
+        .section h2 {
+            color: var(--accent);
+            font-size: 16px;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .summary {
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .cards-2,
+        .cards-3 {
+            font-size: 0;
+            margin-left: -6px;
+            margin-right: -6px;
+        }
+
+        .card,
+        .experience-card {
+            display: inline-block;
+            vertical-align: top;
+            margin: 0 6px 12px;
+            padding: 14px 16px;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background: var(--soft);
+        }
+
+        .cards-2 .card {
+            width: calc(50% - 12px);
+        }
+
+        .cards-3 .card {
+            width: calc(33.333% - 12px);
+        }
+
+        .card-title {
+            display: block;
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .card-text {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .experience-card {
+            display: block;
+            width: auto;
+            margin: 0;
+            background: var(--soft);
+        }
+
+        .experience-head {
+            display: table;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .experience-role,
+        .experience-date {
+            display: table-cell;
+            vertical-align: top;
+        }
+
+        .experience-role h3 {
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .experience-role p,
+        .experience-date {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .experience-date {
+            text-align: right;
+            white-space: nowrap;
+            font-weight: 700;
+        }
+
+        ul {
+            padding-left: 18px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        li + li {
+            margin-top: 6px;
+        }
+
+        @media print {
+            body {
+                padding: 8px;
+                background: var(--bg);
+            }
+
+            .page {
+                max-width: none;
+                border-radius: 18px;
+                box-shadow: none;
+                padding: 22px 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="page">
+        <header class="header">
+            <div class="header-left">
+                <h1>Sarib Malek</h1>
+                <p class="title">Software Engineer & Backend / Python API Developer</p>
+            </div>
+            <div class="header-right">
+                <div class="contact-line">Kadival, Laldarvaja Khambhat, India</div>
+                <div class="contact-line">saribmalek625@gmail.com</div>
+                <div class="contact-line">+91 99097 86552</div>
+                <div class="contact-line">linkedin.com/in/sarib-malek</div>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2>Professional Summary</h2>
+            <p class="summary">
+                A results-driven Software Engineer & Backend / Python API Developer with 7+ years of hands-on
+                experience in designing, developing, and optimizing scalable enterprise web, mobile, and API
+                applications. Specialized in PHP (Laravel, Symfony), Python (FastAPI, Django), Flutter Mobile
+                Development, and Cloud Optimization (AWS), with a strong focus on performance tuning, code
+                optimization, and system scalability. Experienced in SaaS development, Stripe billing, automation
+                workflows using Celery and Python, and building secure, maintainable products across the full software
+                development lifecycle.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>Technical Expertise</h2>
+            <div class="cards-2">
+                <div class="card">
+                    <span class="card-title">PHP Ecosystem</span>
+                    <span class="card-text">Laravel, Symfony, Core PHP, Doctrine ORM, WordPress</span>
+                </div>
+                <div class="card">
+                    <span class="card-title">Python API & Automation</span>
+                    <span class="card-text">FastAPI, Django, Django REST Framework, Celery, Stripe API, Scrapy</span>
+                </div>
+                <div class="card">
+                    <span class="card-title">Frontend & JS Stack</span>
+                    <span class="card-text">React.js, Vue.js, Node.js, Bootstrap, JavaScript, jQuery, Ajax</span>
+                </div>
+                <div class="card">
+                    <span class="card-title">Mobile Development</span>
+                    <span class="card-text">Flutter, Dart, Android Native</span>
+                </div>
+                <div class="card">
+                    <span class="card-title">Databases & Payments</span>
+                    <span class="card-text">MySQL, PostgreSQL, MongoDB, SQLite, Redis, Stripe, Webhooks</span>
+                </div>
+                <div class="card">
+                    <span class="card-title">DevOps & Tools</span>
+                    <span class="card-text">AWS, Docker, Linux, Git, Jira, Bitbucket, Third-party APIs</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Experience</h2>
+            <div class="experience-card">
+                <div class="experience-head" style="padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid var(--line);">
+                    <div class="experience-role">
+                        <h3>Freelance Software Engineer</h3>
+                        <p>Self-Employed / Remote</p>
+                    </div>
+                    <div class="experience-date">2021 - Present</div>
+                </div>
+                <ul style="margin-bottom: 14px;">
+                    <li>Delivered custom web and mobile solutions for clients across multiple business domains.</li>
+                    <li>Built Laravel, Python, and WordPress-based solutions with a focus on performance and maintainability.</li>
+                    <li>Handled client communication, feature planning, deployment, and ongoing support independently.</li>
+                </ul>
+
+                <div class="experience-head">
+                    <div class="experience-role">
+                        <h3>Software Engineer & Backend / Python API Developer</h3>
+                        <p>Vivan Web Solution Pvt. Ltd.</p>
+                    </div>
+                    <div class="experience-date">2018 - 2021</div>
+                </div>
+                <ul>
+                    <li>Spearheaded end-to-end development of enterprise-grade web applications using PHP frameworks and modern JavaScript.</li>
+                    <li>Built high-performance async REST APIs using FastAPI and robust backends with Django REST Framework.</li>
+                    <li>Developed SaaS platforms with Stripe billing, subscriptions, and secure integrations.</li>
+                    <li>Designed scalable database schemas and refactored legacy codebases to improve performance by over 30%.</li>
+                    <li>Created Python automation scripts, Celery task queues, and workflow data pipelines.</li>
+                    <li>Collaborated directly with stakeholders for project scope, sprint planning, and standards compliance.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Featured Projects</h2>
+            <div class="cards-2">
+                <div class="card">
+                    <span class="card-title">National Sports ID</span>
+                    <span class="card-text">PHP & MySQL • Team Size: 5 • Major sports platform for leagues, teams, players, and coaches.</span>
+                </div>
+                <div class="card">
+                    <span class="card-title">MobileMoxie</span>
+                    <span class="card-text">React JS & Symfony • Mobile SEO and ASO platform with dynamic UI and backend services.</span>
+                </div>
+                <div class="card">
+                    <span class="card-title">Capexplan</span>
+                    <span class="card-text">Symfony 2 & React.js • Capital expenditure management software for enterprise planning.</span>
+                </div>
+                <div class="card">
+                    <span class="card-title">B2B Banking Portal</span>
+                    <span class="card-text">Vue.js & Laravel • Admin panel for banking operations with analytics dashboards.</span>
+                </div>
+                <div class="card">
+                    <span class="card-title">Wall Street Italia</span>
+                    <span class="card-text">Symfony & WordPress • Financial news and analysis platform.</span>
+                </div>
+                <div class="card">
+                    <span class="card-title">UTT Project</span>
+                    <span class="card-text">Symfony Framework • High-scalability development and maintenance work.</span>
+                </div>
+                <div class="card">
+                    <span class="card-title">Transportation Advisory</span>
+                    <span class="card-text">PHP & MySQL • Product management system for employees and sub-users.</span>
+                </div>
+                <div class="card">
+                    <span class="card-title">FastAPI SaaS Platform</span>
+                    <span class="card-text">Python & FastAPI • Multi-tenant SaaS platform with Stripe billing and automation workflows.</span>
+                </div>
+                <div class="card">
+                    <span class="card-title">Django Automation Suite</span>
+                    <span class="card-text">Python & Django • Data scraping, reporting pipelines, and REST API integrations.</span>
+                </div>
+                <div class="card">
+                    <span class="card-title">One Noble Pharma</span>
+                    <span class="card-text">WordPress • Medicine-focused website for showcasing pharmaceutical products and brand information.</span>
+                </div>
+                <div class="card">
+                    <span class="card-title">Kumbh Visit</span>
+                    <span class="card-text">WordPress & Elementor • Travel guide website built for Kumbh visitors with planning and destination content.</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Education</h2>
+            <div class="cards-3">
+                <div class="card">
+                    <span class="card-title">Bachelor of Computer Application</span>
+                    <span class="card-text">Sardar Patel University<br>2018<br>CGPA: 9.42 (Grade A)</span>
+                </div>
+                <div class="card">
+                    <span class="card-title">Higher Secondary (12th Science)</span>
+                    <span class="card-text">Madhavlal Shah High School<br>2015<br>Grade B (68%)</span>
+                </div>
+                <div class="card">
+                    <span class="card-title">Secondary School (10th SSC)</span>
+                    <span class="card-text">Madhavlal Shah High School<br>2013<br>Grade B (47%)</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Personal Information</h2>
+            <div class="cards-2">
+                <div class="card">
+                    <span class="card-title">Date of Birth</span>
+                    <span class="card-text">02-Mar-2001</span>
+                </div>
+                <div class="card">
+                    <span class="card-title">Nationality</span>
+                    <span class="card-text">Indian</span>
+                </div>
+                <div class="card">
+                    <span class="card-title">Languages</span>
+                    <span class="card-text">English, Hindi, Gujarati</span>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
