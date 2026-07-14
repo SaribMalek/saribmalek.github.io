@@ -1,0 +1,1501 @@
+<!-- Portfolio Version: v1.5 - Updated Design with Formspree and Projects -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarib Malek - Software Engineer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --surface-color: rgba(30, 41, 59, 0.7);
+            --primary-color: #38bdf8;
+            --secondary-color: #818cf8;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-color);
+            background-image:
+                radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(129, 140, 248, 0.1) 0px, transparent 50%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Utilities */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            width: 100%;
+        }
+
+        .section-padding {
+            padding: 6rem 0;
+        }
+
+        .gradient-text {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-primary {
+            background: var(--accent-gradient);
+            color: white;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+            padding: 1.2rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            transition: transform 0.3s;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding-top: 150px;
+            /* Increased to prevent nav overlap */
+        }
+
+        .hero-content {
+            width: 100%;
+            z-index: 1;
+            /* Center align text by default for better balance */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            /* Prevents children from stretching full width */
+        }
+
+        /* Constrain text width for readability - 60-75 chars per line is ideal */
+        /* But keep container wide layout */
+        .hero-text-block {
+            max-width: 900px;
+            /* Constrained width for text */
+            width: 100%;
+        }
+
+        .hero h2 {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Form Styles */
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: var(--text-primary);
+            outline: none;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            background: rgba(15, 23, 42, 0.8);
+            box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.1);
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            text-align: center;
+            color: var(--text-secondary);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 4rem;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-badge span {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        /* Contact Section specific styles */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: stretch;
+            /* Stretch to same height */
+        }
+
+        .contact-form-wrapper {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            background: var(--surface-color);
+            padding: 1rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .info-item:hover {
+            transform: translateY(-3px);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            background: rgba(56, 189, 248, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: var(--primary-color);
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 900px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
+        /* Cards & Experience */
+        .experience-card {
+            background: var(--surface-color);
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(56, 189, 248, 0.5);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .role {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .company {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-top: 0.2rem;
+        }
+
+        .duration {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-item {
+            background: var(--surface-color);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s;
+        }
+
+        .skill-item:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(56, 189, 248, 0.1);
+        }
+
+        .skill-item h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Tech Chips */
+        .tech-chip {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--primary-color);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .tech-chip:hover {
+            background: var(--primary-color);
+            color: var(--bg-color);
+            transform: translateY(-2px);
+        }
+
+        /* Pricing Section */
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            background: var(--surface-color);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .pricing-table th,
+        .pricing-table td {
+            padding: 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+
+        .pricing-table th {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .pricing-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .pricing-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-primary);
+        }
+
+        /* Responsive */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .container {
+                max-width: 95%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(15, 23, 42, 0.95);
+                flex-direction: column;
+                padding: 2rem 0;
+                transform: translateY(-150%);
+                transition: transform 0.3s;
+                align-items: center;
+                text-align: center;
+                gap: 2rem;
+                /* Add gap for better spacing */
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                text-align: center;
+                justify-content: center;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            /* Force left align for text blocks on mobile if desired, or center */
+            .hero-content div {
+                text-align: center !important;
+            }
+
+            .exp-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .duration {
+                align-self: flex-start;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="container nav-content">
+            <a href="#" class="logo">
+                <img src="logo.png" alt="SM Logo"
+                    style="height: 60px; width: auto; vertical-align: middle; padding: 5px 0;">
+            </a>
+            <button class="mobile-menu-btn" aria-label="Toggle Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12" />
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <line x1="3" y1="18" x2="21" y2="18" />
+                </svg>
+            </button>
+            <ul class="nav-links">
+                <li>
+                    <a href="#about">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        About
+                    </a>
+                </li>
+                <li>
+                    <a href="#experience">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                        Experience
+                    </a>
+                </li>
+                <li>
+                    <a href="#services">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
+                            </path>
+                        </svg>
+                        Services
+                    </a>
+                </li>
+                <li>
+                    <a href="#projects">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                        Projects
+                    </a>
+                </li>
+                <li>
+                    <a href="#education">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                        </svg>
+                        Education
+                    </a>
+                </li>
+                <li>
+                    <a href="#skills">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                        Skills
+                    </a>
+                </li>
+                <li>
+                    <a href="#pricing">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z">
+                            </path>
+                            <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                        </svg>
+                        Pricing
+                    </a>
+                </li>
+                <li>
+                    <a href="#contact">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                            </path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        Contact
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero" id="about">
+        <div class="container">
+            <div class="hero-content">
+                <div class="stat-badge animate-in">
+                    <span>7+ Years</span> of Experience
+                </div>
+                <h2 class="animate-in delay-1">Hello, I'm</h2>
+                <h1 class="animate-in delay-2">Sarib <span class="gradient-text">Malek</span></h1>
+                <h3 style="color: var(--text-secondary); font-size: 1.5rem; margin-bottom: 1rem;"
+                    class="animate-in delay-2">Freelance Software Engineer &amp; Backend / Python API Developer</h3>
+                <div class="animate-in delay-3 hero-text-block" style="margin-bottom: 2.5rem; text-align: left;">
+                    <p
+                        style="font-size: 1.15rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        A results-driven <strong><!-- Freelance Software Engineer &amp; Backend / Python API Developer --> Freelance Full Stack Developer | Backend Engineer | Python API Developer </strong> with <strong>7+ years of
+                            expertise</strong> in delivering custom web, mobile, and API solutions to clients worldwide.
+                        Specialized in <strong>PHP (Laravel, Symfony)</strong>, <strong>Python (FastAPI, Django)</strong>, <strong>Flutter Mobile
+                            Development</strong>, <strong>SaaS Development</strong>, and <strong>Cloud Optimization (AWS)</strong>, I help businesses build
+                        scalable, high-performance applications.
+                    </p>
+                    <p
+                        style="font-size: 1.15rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        Expert in building <strong>RESTful &amp; async Python APIs</strong> with <strong>FastAPI</strong> and <strong>Django REST Framework</strong>,
+                        integrating <strong>Stripe payment systems</strong>, building <strong>SaaS platforms</strong>, and creating
+                        powerful <strong>automation scripts &amp; workflows</strong>. Whether you need a new MVP, a complex
+                        enterprise system, or maintenance for existing projects, I deliver high-quality code and
+                        reliable results.
+                    </p>
+                    <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-secondary);">
+                        Proficient across the <strong>full development lifecycle (SDLC)</strong>, with solid expertise
+                        in <strong>Java</strong>, <strong>Python</strong>, and the <strong>full JavaScript
+                            stack</strong>, along with Agile methodologies, API integrations, database optimization,
+                        and Stripe billing &amp; subscription management.
+                    </p>
+                </div>
+                <div class="animate-in delay-3">
+                    <a href="#contact" class="btn btn-primary">Hire Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section-padding">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 3rem;">Professional <span
+                    class="gradient-text">Experience</span></h2>
+
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div>
+                        <h3 class="role">Freelance Software Engineer</h3>
+                        <p class="company">Self-Employed / Remote</p>
+                    </div>
+                    <span class="duration">Jan 2023 - Present</span>
+                </div>
+                <ul
+                    style="color: var(--text-secondary); list-style-type: disc; padding-left: 1.5rem; margin-top: 1rem;">
+                    <li style="margin-bottom: 0.5rem;"><strong>End-to-End Delivery:</strong> Delivered custom web and
+                        mobile applications for diverse clients, managing the entire project lifecycle from concept to
+                        launch.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Technical Consultation:</strong> Consulted with clients
+                        to define technical requirements and provided strategic advice on technology stack selection and
+                        scalability.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Solution Architecture:</strong> Developed
+                        high-performance e-commerce platforms, booking systems, and business management tools using
+                        Laravel and Flutter.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Client Success:</strong> Maintained long-term
+                        relationships with clients through reliable maintenance, updates, and feature enhancements.</li>
+                </ul>
+            </div>
+
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div>
+                        <h3 class="role">Software Engineer</h3>
+                        <p class="company">Vivan web solution Pvt ltd</p>
+                    </div>
+                    <span class="duration">Jan 2018 - Dec 2022</span>
+                </div>
+                <ul
+                    style="color: var(--text-secondary); list-style-type: disc; padding-left: 1.5rem; margin-top: 1rem;">
+                    <li style="margin-bottom: 0.5rem;"><strong>Full Lifecycle Development (SDLC):</strong> Spearheaded
+                        the end-to-end development of enterprise-grade web applications, ensuring timely delivery and
+                        adherence to high-quality code standards using PHP frameworks and modern JavaScript.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>System Architecture & Optimization:</strong> Designed and
+                        maintained scalable database schemas and backend logic, successfully refactoring legacy
+                        codebases to improve application performance by over 30%.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Code Quality & Analysis:</strong> Conducted comprehensive
+                        code reviews, requirements analysis, and risk assessments to minimize technical debt and ensure
+                        software reliability.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Project Management:</strong> Collaborated directly with
+                        stakeholders to define project scope, managed sprint planning using Agile methodologies, and
+                        effectively prioritized feature requests.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Innovation & Mentorship:</strong> Evaluated and
+                        integrated emerging technologies (such as Flutter and Node.js) to modernize the tech stack,
+                        while mentoring junior developers on best practices.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Website Development & CMS:</strong> Developed dynamic,
+                        responsive websites using HTML5, CSS3, and WordPress. Customized themes and plugins to meet
+                        unique client business requirements, ensuring cross-browser compatibility.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>UI/UX Design & Prototyping:</strong> Collaborated with
+                        design teams to translate wireframes into interactive, pixel-perfect user interfaces. focused on
+                        enhancing user experience through intuitive layout design and smooth micro-interactions.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section-padding" style="background: rgba(255,255,255,0.02);">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 3rem;">My <span class="gradient-text">Services</span></h2>
+
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="icon-box" style="margin: 0 auto 1.5rem; width: 60px; height: 60px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Custom Web Development</h3>
+                    <p style="color: var(--text-secondary); margin-top: 1rem; font-size: 0.95rem;">
+                        Tailored web solutions using modern frameworks like Laravel, Symfony, React, and Vue.js. From
+                        landing pages to complex web portals.
+                    </p>
+                </div>
+
+                <div class="skill-item">
+                    <div class="icon-box" style="margin: 0 auto 1.5rem; width: 60px; height: 60px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                        </svg>
+                    </div>
+                    <h3>Mobile App Development</h3>
+                    <p style="color: var(--text-secondary); margin-top: 1rem; font-size: 0.95rem;">
+                        Cross-platform mobile applications using Flutter. High-performance apps that work seamlessly on
+                        both iOS and Android.
+                    </p>
+                </div>
+
+                <div class="skill-item">
+                    <div class="icon-box" style="margin: 0 auto 1.5rem; width: 60px; height: 60px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M2 16.1A5 5 0 0 1 5.9 20M2 12.05A9 9 0 0 1 9.95 20M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6">
+                            </path>
+                            <line x1="2" y1="20" x2="2" y2="20"></line>
+                        </svg>
+                    </div>
+                    <h3>API Integration &amp; Backend</h3>
+                    <p style="color: var(--text-secondary); margin-top: 1rem; font-size: 0.95rem;">
+                        Robust backend architecture, REST/GraphQL API design, and third-party service integrations
+                        (Stripe, Twilio, AWS, etc.).
+                    </p>
+                </div>
+
+                <div class="skill-item">
+                    <div class="icon-box" style="margin: 0 auto 1.5rem; width: 60px; height: 60px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="4 17 10 11 4 5"></polyline>
+                            <line x1="12" y1="19" x2="20" y2="19"></line>
+                        </svg>
+                    </div>
+                    <h3>Python API &amp; SaaS Development</h3>
+                    <p style="color: var(--text-secondary); margin-top: 1rem; font-size: 0.95rem;">
+                        High-performance async APIs with <strong style="color:var(--primary-color)">FastAPI</strong> &amp; <strong style="color:var(--primary-color)">Django REST</strong>, full SaaS platforms with
+                        Stripe billing, subscriptions, and automation workflows.
+                    </p>
+                </div>
+
+                <div class="skill-item">
+                    <div class="icon-box" style="margin: 0 auto 1.5rem; width: 60px; height: 60px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3>Automation &amp; Maintenance</h3>
+                    <p style="color: var(--text-secondary); margin-top: 1rem; font-size: 0.95rem;">
+                        Python-powered automation scripts, data pipelines, scheduled tasks, and ongoing maintenance,
+                        bug fixing, and performance optimization for your existing applications.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section-padding" style="background: var(--bg-color);">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 3rem;">Featured <span class="gradient-text">Projects</span>
+            </h2>
+
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div>
+                        <h3 class="role">National Sports Id</h3>
+                        <p class="company">Software Engineer</p>
+                    </div>
+                    <span class="duration">PHP & MySQL</span>
+                </div>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                    Platform for creating leagues and teams, managing players, coaches, and generating match sheets.
+                </p>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                    Key Features: League/Team management, Verify players/coaches, Document uploads, Payment integration.
+                    <br>Team Size: 5
+                </p>
+            </div>
+
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div>
+                        <h3 class="role">MobileMoxie</h3>
+                        <p class="company">Software Engineer</p>
+                    </div>
+                    <span class="duration">React JS & Symfony</span>
+                </div>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                    Contributed to the development of MobileMoxie, a comprehensive mobile SEO and ASO toolset. Built
+                    dynamic user interfaces with React JS and robust backend services using Symfony.
+                </p>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                    Key Tech: React JS, Symfony, PHP, MySQL.
+                </p>
+            </div>
+
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div>
+                        <h3 class="role">Wall Street Italia</h3>
+                        <p class="company">Software Engineer</p>
+                    </div>
+                    <span class="duration">Symfony & WordPress</span>
+                </div>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                    Worked on the Wall Street Italia project, leveraging Symfony and WordPress to build robust web
+                    solutions.
+                </p>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                    Key Tech: Symfony, WordPress, PHP, MySQL.
+                </p>
+            </div>
+
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div>
+                        <h3 class="role">UTT Project</h3>
+                        <p class="company">Software Engineer</p>
+                    </div>
+                    <span class="duration">Symfony Framework</span>
+                </div>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                    Developed and maintained the UTT project using the Symfony framework, ensuring high performance and
+                    scalability.
+                </p>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                    Key Tech: Symfony, PHP, Doctrine.
+                </p>
+            </div>
+
+
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div>
+                        <h3 class="role">Transportation Advisory</h3>
+                        <p class="company">Software Engineer</p>
+                    </div>
+                    <span class="duration">PHP & MySQL</span>
+                </div>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                    Transportation product management system for creating employees and sub-users.
+                </p>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                    Team Size: 3
+                </p>
+            </div>
+
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div>
+                        <h3 class="role">B2B Banking Portal</h3>
+                        <p class="company">Software Engineer</p>
+                    </div>
+                    <span class="duration">Vue.js & Laravel</span>
+                </div>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                    Enterprise admin panel for banking operations with advanced data visualization.
+                </p>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                    Key Tech: Vue.js, Laravel, Chart.js.
+                    <br>Features: Financial analytics, Secure banking operations management.
+                </p>
+            </div>
+
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div>
+                        <h3 class="role">Capexplan</h3>
+                        <p class="company">Software Engineer</p>
+                    </div>
+                    <span class="duration">Symfony 2, React.js</span>
+                </div>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                    Capital expenditure management software for enterprise-level financial planning.
+                </p>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                    Key Tech: Symfony 2, JavaScript, React.js.
+                    <br>Features: Sales &amp; purchase management, Budget approval workflows, Capex tracking.
+                </p>
+            </div>
+
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div>
+                        <h3 class="role">FastAPI SaaS Platform</h3>
+                        <p class="company">Backend / Python API Developer</p>
+                    </div>
+                    <span class="duration">Python &amp; FastAPI</span>
+                </div>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                    Built a multi-tenant SaaS platform with async REST APIs, Stripe subscription billing,
+                    role-based access control, and automated email workflows.
+                </p>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                    Key Tech: Python, FastAPI, PostgreSQL, Stripe, Celery, Redis, Docker, AWS.
+                    <br>Features: Stripe checkout &amp; webhooks, subscription tiers, background task queues, JWT auth.
+                </p>
+            </div>
+
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div>
+                        <h3 class="role">Django Automation Suite</h3>
+                        <p class="company">Backend / Python API Developer</p>
+                    </div>
+                    <span class="duration">Python &amp; Django</span>
+                </div>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                    Developed a Django-based automation suite for scraping, data pipelines,
+                    scheduled reporting, and REST API integrations for business clients.
+                </p>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                    Key Tech: Python, Django, Django REST Framework, Celery, MySQL, Scrapy.
+                    <br>Features: Automated data collection, scheduled tasks, REST API, admin dashboard.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="section-padding">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 3rem;">My <span class="gradient-text">Education</span></h2>
+
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div>
+                        <h3 class="role">Bachelor of Computer Application</h3>
+                        <p class="company">Sardar Patel University</p>
+                    </div>
+                    <span class="duration">2021</span>
+                </div>
+                <p style="color: var(--text-secondary);">
+                    CGPA: 9.42 (Grade A)
+                </p>
+            </div>
+
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div>
+                        <h3 class="role">Higher Secondary (12th)</h3>
+                        <p class="company">Madhavlal Shah High School</p>
+                    </div>
+                    <span class="duration">2018</span>
+                </div>
+                <p style="color: var(--text-secondary);">
+                    68% (Grade B)
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section-padding" style="background: rgba(255,255,255,0.02);">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 3rem;">Technical <span class="gradient-text">Expertise</span>
+            </h2>
+
+            <!-- Subsection: Languages -->
+            <h3
+                style="margin-bottom: 2rem; font-size: 1.5rem; color: var(--text-primary); border-left: 4px solid var(--primary-color); padding-left: 1rem; opacity: 0.9;">
+                Languages & Frameworks</h3>
+            <div class="skills-grid" style="margin-bottom: 4rem;">
+                <div class="skill-item" style="text-align: left;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">PHP Ecosystem</h3>
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--text-primary);">
+                        <i class="devicon-php-plain"></i>
+                        <i class="devicon-laravel-original"></i>
+                        <i class="devicon-symfony-original"></i>
+                    </div>
+                    <p
+                        style="color: var(--text-primary); font-weight: 600; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">
+                        Laravel, Symfony, Core PHP</p>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
+                        Expertise in architecting scalable backends and ERP solutions. Proven track record in managing
+                        complex dependency injections, creating custom console commands, optimizing high-traffic
+                        applications, and implementing secure authentication systems (OAuth, JWT). Deeply experienced in
+                        MVC architecture and Doctrine ORM.
+                    </p>
+                </div>
+
+                <div class="skill-item" style="text-align: left;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">Mobile Development</h3>
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--text-primary);">
+                        <i class="devicon-flutter-plain"></i>
+                        <i class="devicon-dart-plain"></i>
+                        <i class="devicon-android-plain"></i>
+                    </div>
+                    <p
+                        style="color: var(--text-primary); font-weight: 600; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">
+                        Flutter, Dart</p>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
+                        Developing production-ready cross-platform apps for iOS and Android. proficient in state
+                        management (Provider, Bloc), custom animations, and native device feature integration.
+                    </p>
+                </div>
+
+                <div class="skill-item" style="text-align: left;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">Python API &amp; Automation</h3>
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--text-primary);">
+                        <i class="devicon-python-plain"></i>
+                        <i class="devicon-fastapi-plain"></i>
+                        <i class="devicon-django-plain"></i>
+                    </div>
+                    <p
+                        style="color: var(--text-primary); font-weight: 600; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">
+                        Python, FastAPI, Django, Celery, Stripe</p>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
+                        Building high-performance async REST APIs with <strong>FastAPI</strong> and robust
+                        web backends with <strong>Django REST Framework</strong>. Expert in SaaS development,
+                        Stripe subscriptions &amp; billing, Celery task automation, and web scraping/data pipelines.
+                    </p>
+                </div>
+
+                <div class="skill-item" style="text-align: left;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">Programming Languages</h3>
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--text-primary);">
+                        <i class="devicon-java-plain"></i>
+                        <i class="devicon-python-plain"></i>
+                        <i class="devicon-go-original-wordmark"></i>
+                    </div>
+                    <p
+                        style="color: var(--text-primary); font-weight: 600; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">
+                        Java, Python, Go</p>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
+                        Utilizing Java for robust enterprise logic, multi-threaded applications, and Android native
+                        modules. Leveraging Python for API development, scripting, automation tools, and web scraping. Building
+                        high-performance concurrent systems with Go.
+                    </p>
+                </div>
+
+                <div class="skill-item" style="text-align: left;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">Frontend & JS Stack</h3>
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--text-primary);">
+                        <i class="devicon-nodejs-plain"></i>
+                        <i class="devicon-react-original"></i>
+                        <i class="devicon-vuejs-plain"></i>
+                        <i class="devicon-bootstrap-plain"></i>
+                        <i class="devicon-javascript-plain"></i>
+                    </div>
+                    <p
+                        style="color: var(--text-primary); font-weight: 600; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">
+                        Node.js, React.js, Vue.js, Bootstrap, JavaScript</p>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
+                        Building highly interactive Single Page Applications (SPAs) with <strong>React.js</strong> and
+                        <strong>Vue.js</strong>. Developing scalable, event-driven backends with
+                        <strong>Node.js</strong>.
+                        Proficient in creating pixel-perfect, mobile-first responsive layouts using
+                        <strong>Bootstrap</strong> and custom CSS/SASS without relying on templates.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Subsection: Databases & Tools -->
+            <h3
+                style="margin-bottom: 2rem; font-size: 1.5rem; color: var(--text-primary); border-left: 4px solid var(--secondary-color); padding-left: 1rem; opacity: 0.9;">
+                Databases & Infrastructure</h3>
+            <div class="skills-grid">
+                <div class="skill-item" style="text-align: left;">
+                    <h3 style="color: var(--secondary-color); margin-bottom: 0.5rem;">Databases</h3>
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--text-primary);">
+                        <i class="devicon-mysql-plain"></i>
+                        <i class="devicon-postgresql-plain"></i>
+                        <i class="devicon-mongodb-plain"></i>
+                        <i class="devicon-sqlite-plain"></i>
+                    </div>
+                    <p
+                        style="color: var(--text-primary); font-weight: 600; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">
+                        MySQL, PostgreSQL, MongoDB, SQLite</p>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
+                        Designing normalized relational schemas and handling NoSQL data structures. writing complex
+                        joins, stored procedures, and performing query optimization for speed.
+                    </p>
+                </div>
+
+                <div class="skill-item" style="text-align: left;">
+                    <h3 style="color: var(--secondary-color); margin-bottom: 0.5rem;">Tools & Collaboration</h3>
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--text-primary);">
+                        <i class="devicon-github-original"></i>
+                        <i class="devicon-bitbucket-original"></i>
+                        <i class="devicon-jira-plain"></i>
+                        <i class="devicon-trello-plain"></i>
+                    </div>
+                    <p
+                        style="color: var(--text-primary); font-weight: 600; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">
+                        GitHub, Bitbucket, Jira, Trello, ActiveCollab</p>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
+                        Streamlined workflow management using <strong>Jira, Trello, and ActiveCollab</strong>. Expert in
+                        version control strategies with <strong>GitHub/Bitbucket</strong>, alongside secure REST API &
+                        Payment Gateway integrations.
+                    </p>
+                </div>
+
+                <div class="skill-item" style="text-align: left;">
+                    <h3 style="color: var(--secondary-color); margin-bottom: 0.5rem;">CMS & Other</h3>
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--text-primary);">
+                        <i class="devicon-wordpress-plain"></i>
+                        <i class="devicon-docker-plain"></i>
+                        <i class="devicon-linux-plain"></i>
+                    </div>
+                    <p
+                        style="color: var(--text-primary); font-weight: 600; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">
+                        WordPress, Docker, Linux</p>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
+                        Custom theme and plugin development for WordPress. experience with server management (Linux) and
+                        containerization using Docker.
+                    </p>
+                </div>
+
+                <div class="skill-item" style="text-align: left;">
+                    <h3 style="color: var(--secondary-color); margin-bottom: 0.5rem;">SaaS, Stripe &amp; Cloud</h3>
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--text-primary);">
+                        <i class="devicon-amazonwebservices-plain-wordmark"></i>
+                        <i class="devicon-python-plain"></i>
+                    </div>
+                    <p
+                        style="color: var(--text-primary); font-weight: 600; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">
+                        AWS, Stripe, SaaS Architecture, Automation</p>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
+                        End-to-end SaaS development including Stripe billing, subscriptions &amp; webhooks. Proficient
+                        in cloud deployment (AWS EC2, S3), automated workflows with Python/Celery,
+                        and complex payment gateway integrations.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="section-padding">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 3rem; text-align: center;">Pricing <span
+                    class="gradient-text">Plans</span></h2>
+
+            <div class="animate-in delay-1">
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem; color: var(--text-primary);">Working Hour Plans
+                </h3>
+
+                <div style="overflow-x: auto;">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 30%">Type</th>
+                                <th>Hourly Hiring</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="font-weight: 600; color: var(--text-primary);">Per Hour Price</td>
+                                <td style="font-size: 1.2rem; font-weight: 700; color: var(--primary-color);">$16 Per
+                                    Hour</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 600; color: var(--text-primary);">Project Based Price</td>
+                                <td>As per requirement</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 600; color: var(--text-primary);">Communication</td>
+                                <td>Basecamp, Zoom, Skype, Google Meet, Phone, Chat, etc. (as per client’s preference)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 600; color: var(--text-primary);">Project Tracking</td>
+                                <td>Google Sheets, Basecamp, Jira, GitHub, Daily Reports</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding" style="position: relative;">
+        <!-- Background element for visual interest -->
+        <div
+            style="position: absolute; right: 0; bottom: 0; width: 300px; height: 300px; background: radial-gradient(circle, rgba(129, 140, 248, 0.1) 0%, rgba(15, 23, 42, 0) 70%); border-radius: 50%; pointer-events: none;">
+        </div>
+
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 3rem; text-align: center;">Get In <span
+                    class="gradient-text">Touch</span></h2>
+
+            <div class="contact-wrapper">
+                <!-- Contact Information -->
+                <div class="contact-info animate-in">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem;">Let's Talk</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 2.5rem; font-size: 1.1rem;">
+                        I'm currently available for freelance projects and open to full-time opportunities.
+                        If you have a project in mind or just want to say hi, feel free to reach out!
+                    </p>
+
+                    <div class="info-list">
+                        <div class="info-item">
+                            <div class="icon-box">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                                </svg>
+                            </div>
+                            <div>
+                                <span style="display: block; font-size: 0.9rem; color: var(--text-secondary);">Email
+                                    Me</span>
+                                <a href="mailto:saribmalek625@gmail.com"
+                                    style="color: var(--text-primary); text-decoration: none; font-weight: 500;">saribmalek625@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="icon-box">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <span style="display: block; font-size: 0.9rem; color: var(--text-secondary);">Call
+                                    Me</span>
+                                <a href="tel:9909786552"
+                                    style="color: var(--text-primary); text-decoration: none; font-weight: 500;">+91
+                                    99097 86552</a>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="icon-box">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                            </div>
+                            <div>
+                                <span
+                                    style="display: block; font-size: 0.9rem; color: var(--text-secondary);">Location</span>
+                                <span style="color: var(--text-primary); font-weight: 500;">Kadival, Laldarvaja
+                                    Khambhat, India</span>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="icon-box">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                    <rect x="2" y="9" width="4" height="12" />
+                                    <circle cx="4" cy="4" r="2" />
+                                </svg>
+                            </div>
+                            <div>
+                                <span
+                                    style="display: block; font-size: 0.9rem; color: var(--text-secondary);">LinkedIn</span>
+                                <a href="https://www.linkedin.com/in/sarib-malek-135066214" target="_blank"
+                                    style="color: var(--text-primary); text-decoration: none; font-weight: 500;">Connect
+                                    on LinkedIn</a>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="icon-box">
+                                <svg role="img" viewBox="0 0 24 24" width="24" height="24"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                                    <title>Upwork</title>
+                                    <path
+                                        d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.816v6.106c0 .79-.642 1.432-1.432 1.432-.79 0-1.432-.642-1.432-1.432V3.492H2.204v6.106c0 2.302 1.868 4.17 4.18 4.17 2.311 0 4.18-1.868 4.18-4.17v-3.15c.61 2.119 1.61 4.623 3.106 6.54l-1.921 5.673h2.909l1.437-4.321c1.078.683 2.128.847 2.403.868l-.001.001c2.903 0 5.259-2.356 5.293-5.258.003-2.905-2.352-5.753-5.23-5.753z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <span
+                                    style="display: block; font-size: 0.9rem; color: var(--text-secondary);">Upwork</span>
+                                <a href="https://www.upwork.com/freelancers/~01b70d252e318ac52a" target="_blank"
+                                    style="color: var(--text-primary); text-decoration: none; font-weight: 500;">Hire me
+                                    on Upwork</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper animate-in delay-1"
+                    style="background: var(--surface-color); padding: 2.5rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 4px 30px rgba(0,0,0,0.1);">
+
+                    <h3 style="font-size: 1.8rem; margin-bottom: 2rem; color: var(--text-primary);">Send a Message</h3>
+
+                    <form id="contactForm" action="https://formsubmit.co/saribmalek625@gmail.com" method="POST"
+                        onsubmit="return validateForm()">
+                        <!-- Honeypot to prevent spam -->
+                        <input type="text" name="_honey" style="display:none">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_subject" value="New Contact from Portfolio!">
+                        <input type="hidden" name="_next" value="https://saribmalek.github.io/">
+
+                        <div class="form-group" style="margin-bottom: 1.5rem;">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe" class="form-control">
+                            <span class="error-msg" id="nameError"
+                                style="color: #ef4444; font-size: 0.85rem; display: none; margin-top: 0.5rem;">Please
+                                enter your name</span>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 1.5rem;">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com"
+                                class="form-control">
+                            <span class="error-msg" id="emailError"
+                                style="color: #ef4444; font-size: 0.85rem; display: none; margin-top: 0.5rem;">Please
+                                enter a valid email address</span>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 2rem;">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" placeholder="How can I help you?"
+                                class="form-control" style="resize: vertical;"></textarea>
+                            <span class="error-msg" id="messageError"
+                                style="color: #ef4444; font-size: 0.85rem; display: none; margin-top: 0.5rem;">Please
+                                enter a message</span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary"
+                            style="border: none; font-size: 1rem; width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function validateForm() {
+            let isValid = true;
+
+            // Get values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            // Get error elements
+            const nameError = document.getElementById('nameError');
+            const emailError = document.getElementById('emailError');
+            const messageError = document.getElementById('messageError');
+
+            // Reset errors
+            nameError.style.display = 'none';
+            emailError.style.display = 'none';
+            messageError.style.display = 'none';
+
+            // Validate Name
+            if (name === "") {
+                nameError.style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate Email
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email === "" || !emailPattern.test(email)) {
+                emailError.style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate Message
+            if (message === "") {
+                messageError.style.display = 'block';
+                isValid = false;
+            }
+
+            return isValid;
+        }
+    </script>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 MohammedSarib Malek. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Scroll Reveal API
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const cards = document.querySelectorAll('.experience-card, .skill-item');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+
+            // Mobile Menu Toggle
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+
+            menuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            // Close menu when a link is clicked
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
