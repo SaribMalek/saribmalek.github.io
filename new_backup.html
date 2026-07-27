@@ -128,7 +128,6 @@
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             backdrop-filter: blur(10px);
-            min-width: 0;
         }
 
         .pill {
@@ -258,7 +257,7 @@
         }
 
         .hero {
-            padding: 4.5rem 0 2rem;
+            padding: 5rem 0 4rem;
         }
 
         .hero-grid {
@@ -276,15 +275,15 @@
         .hero-copy {
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
+            justify-content: center;
             gap: 1.4rem;
         }
 
         .hero h1 {
             font-family: "Sora", sans-serif;
-            font-size: clamp(1.9rem, 3.4vw, 3.4rem);
-            line-height: 1.12;
-            letter-spacing: -0.03em;
+            font-size: clamp(2.8rem, 7vw, 5.4rem);
+            line-height: 0.98;
+            letter-spacing: -0.06em;
         }
 
         .hero h1 span {
@@ -329,39 +328,10 @@
             font-size: 0.92rem;
         }
 
-        .check-list {
-            list-style: none;
-            display: grid;
-            gap: 0.6rem;
-            margin-top: 0.2rem;
-        }
-
-        .check-list li {
-            display: flex;
-            align-items: center;
-            gap: 0.65rem;
-            font-weight: 700;
-            font-size: 0.98rem;
-        }
-
-        .check-list li::before {
-            content: "\2713";
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 1.4rem;
-            height: 1.4rem;
-            flex-shrink: 0;
-            border-radius: 50%;
-            background: rgba(52, 211, 153, 0.16);
-            color: #1f9d6e;
-            font-size: 0.78rem;
-        }
-
         .hero-panel {
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
+            justify-content: space-between;
             gap: 1.5rem;
             background:
                 linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(244, 249, 255, 0.94)),
@@ -574,80 +544,6 @@
             border: 1px solid rgba(77, 163, 255, 0.12);
             color: #326a9e;
             font-size: 0.88rem;
-        }
-
-        .project-cover {
-            height: 170px;
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.85rem;
-            background:
-                linear-gradient(135deg, rgba(77, 163, 255, 0.16), rgba(124, 196, 255, 0.12));
-            border: 1px solid rgba(77, 163, 255, 0.16);
-        }
-
-        .project-cover i {
-            font-size: 2.3rem;
-            color: var(--accent-2);
-        }
-
-        .project-cover span {
-            font-family: "Sora", sans-serif;
-            font-weight: 700;
-            font-size: 1.05rem;
-            color: #2266ad;
-        }
-
-        .case-block h4,
-        .case-result h4 {
-            font-family: "Sora", sans-serif;
-            font-size: 0.78rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--accent-2);
-            margin-bottom: 0.4rem;
-        }
-
-        .case-block p {
-            color: var(--muted);
-        }
-
-        .case-features {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .case-features li {
-            padding: 0.4rem 0.8rem;
-            border-radius: 999px;
-            background: rgba(77, 163, 255, 0.07);
-            border: 1px solid rgba(77, 163, 255, 0.14);
-            color: #326a9e;
-            font-size: 0.85rem;
-        }
-
-        .case-result {
-            padding: 1rem 1.1rem;
-            border-radius: 16px;
-            background: rgba(52, 211, 153, 0.09);
-            border: 1px solid rgba(52, 211, 153, 0.2);
-        }
-
-        .case-result h4 {
-            color: #1f9d6e;
-        }
-
-        .case-result p {
-            color: #1c5c47;
-        }
-
-        .projects-grid {
-            grid-template-columns: 1fr;
-            gap: 1.75rem;
         }
 
         .skills-grid {
@@ -919,21 +815,17 @@
                 <div class="card hero-copy fade-up">
                     <span class="eyebrow">Available for freelance and remote work</span>
                     <div>
-                        <p class="pill" style="margin-bottom: 1rem;">Sarib Malek — Full-Stack Software Engineer</p>
-                        <h1>Helping SaaS companies build secure <span>payment</span> & subscription platforms.</h1>
+                        <p class="pill" style="margin-bottom: 1rem;">7+ years building reliable digital products</p>
+                        <h1>Sarib <span>Malek</span></h1>
                     </div>
                     <p class="hero-lead">
-                        Senior Full-Stack Developer with 7+ years building secure billing systems, subscription
-                        platforms, and scalable APIs — using Laravel, Symfony, FastAPI, Django, and Flutter — for
-                        founders and teams who need production-ready software, not just a demo.
+                        Freelance full stack developer, backend engineer, and Python API developer focused on scalable
+                        web platforms, SaaS products, mobile apps, and business automation.
                     </p>
-                    <ul class="check-list">
-                        <li>7+ Years Experience</li>
-                        <li>10+ Completed Projects</li>
-                        <li>Stripe & PayPal Expert</li>
-                        <li>SaaS & Subscription Systems</li>
-                        <li>Available for Remote Freelance</li>
-                    </ul>
+                    <p class="hero-lead">
+                        I help companies ship faster with Laravel, Symfony, FastAPI, Django, Flutter, Stripe
+                        integrations, and cloud-ready architecture that stays maintainable as products grow.
+                    </p>
                     <div class="hero-meta">
                         <span class="pill">Laravel & Symfony</span>
                         <span class="pill">FastAPI & Django</span>
@@ -942,7 +834,21 @@
                     </div>
                     <div class="btn-row">
                         <a class="btn btn-primary" href="#contact">Hire Me</a>
-                        <a class="btn btn-secondary" href="Sarib_Malek_Resume_new.pdf" target="_blank">View Resume</a>
+                        <a class="btn btn-secondary" href="New Resume - Sarib Malek.pdf" target="_blank">View Resume</a>
+                    </div>
+                    <div class="metrics">
+                        <div class="metric">
+                            <strong>7+</strong>
+                            <span>Years of professional experience</span>
+                        </div>
+                        <div class="metric">
+                            <strong>Web + API</strong>
+                            <span>Full-cycle product development</span>
+                        </div>
+                        <div class="metric">
+                            <strong>Remote</strong>
+                            <span>Comfortable with async global teams</span>
+                        </div>
                     </div>
                 </div>
 
@@ -984,7 +890,7 @@
             </div>
         </section>
 
-        <section class="section" style="padding-top: 2.5rem;">
+        <section class="section">
             <div class="container about-grid">
                 <div class="card about-copy fade-up">
                     <div class="section-heading" style="margin-bottom: 1.5rem;">
@@ -1124,300 +1030,126 @@
                     <p>A mix of enterprise platforms, internal systems, SaaS products, and specialized client solutions across web and backend engineering.</p>
                 </div>
 
-                <!-- Cover blocks below are placeholder visuals. Swap the .project-cover blocks for real
-                     product screenshots (desktop + mobile) as soon as they're available — that's the
-                     single highest-impact upgrade left for this section. -->
-                <div class="projects-grid">
+                <div class="grid-2 projects-grid">
                     <article class="card project-card fade-up">
-                        <div class="project-cover"><i class="devicon-wordpress-plain"></i><span>National Sports ID</span></div>
                         <div class="project-top">
-                            <div><h3>National Sports ID</h3></div>
-                            <span class="pill">Symfony & WordPress</span>
+                            <div>
+                                <h3>National Sports ID</h3>
+                                <p>League and team management platform for player verification, documents, and payments.</p>
+                            </div>
+                            <span class="pill">PHP & MySQL</span>
                         </div>
-                        <div class="case-block">
-                            <h4>Problem</h4>
-                            <p>A sports league organization managed team registration, player eligibility checks, and payments manually across paper forms and spreadsheets — slow and error-prone as leagues grew.</p>
-                        </div>
-                        <div class="case-block">
-                            <h4>Solution</h4>
-                            <p>Built a complete league and team management platform on Symfony and WordPress, covering roster management, player/coach onboarding, document verification, and payment collection.</p>
-                        </div>
-                        <div class="case-block">
-                            <h4>Key Features</h4>
-                            <ul class="case-features">
-                                <li>Multi-step player verification</li>
-                                <li>Secure payment gateway</li>
-                                <li>Document uploads</li>
-                                <li>Automated ID & match sheet generation</li>
-                                <li>WordPress + Symfony integration</li>
-                                <li>Role-based access</li>
-                            </ul>
-                        </div>
-                        <div class="case-result">
-                            <h4>Business Result</h4>
-                            <p>Replaced manual paperwork with automated verification and ID generation, and gave the organization a trusted, secure way to collect payments across thousands of players.</p>
+                        <div class="project-tech">
+                            <span>League management</span>
+                            <span>Document uploads</span>
+                            <span>Payment integration</span>
                         </div>
                     </article>
 
                     <article class="card project-card fade-up">
-                        <div class="project-cover"><i class="devicon-react-original"></i><span>MobileMoxie</span></div>
                         <div class="project-top">
-                            <div><h3>MobileMoxie</h3></div>
+                            <div>
+                                <h3>MobileMoxie</h3>
+                                <p>Contributed to a mobile SEO and ASO toolset using React JS for UI and Symfony for backend services.</p>
+                            </div>
                             <span class="pill">React & Symfony</span>
                         </div>
-                        <div class="case-block">
-                            <h4>Problem</h4>
-                            <p>MobileMoxie's mobile marketing intelligence suite — live SERP tracking, competitor landing-page monitoring, and app store ranking analytics — needed new dashboard features and backend services delivered without disrupting a production platform used by agencies and brand BI teams.</p>
-                        </div>
-                        <div class="case-block">
-                            <h4>Solution</h4>
-                            <p>Contributed React JS dashboard interfaces and Symfony backend services across MobileMoxie's product suite, including tools like SERPerator, Page-oscope, and the App/SERP/Page Datalyzer analytics products.</p>
-                        </div>
-                        <div class="case-block">
-                            <h4>Key Features</h4>
-                            <ul class="case-features">
-                                <li>React JS dashboards</li>
-                                <li>Symfony REST services</li>
-                                <li>Live SERP & app-ranking tracking</li>
-                                <li>Competitor landing-page monitoring</li>
-                                <li>MySQL data layer</li>
-                            </ul>
-                        </div>
-                        <div class="case-result">
-                            <h4>Business Result</h4>
-                            <p>Shipped UI and backend features used daily by marketing agencies and brand BI teams to track competitors' mobile search and app-store visibility in real time.</p>
+                        <div class="project-tech">
+                            <span>React JS</span>
+                            <span>Symfony</span>
+                            <span>MySQL</span>
                         </div>
                     </article>
 
                     <article class="card project-card fade-up">
-                        <div class="project-cover"><i class="devicon-wordpress-plain"></i><span>Wall Street Italia</span></div>
                         <div class="project-top">
-                            <div><h3>Wall Street Italia</h3></div>
+                            <div>
+                                <h3>Wall Street Italia</h3>
+                                <p>Worked on robust publishing and web solutions powered by Symfony and WordPress.</p>
+                            </div>
                             <span class="pill">Symfony & WordPress</span>
                         </div>
-                        <div class="case-block">
-                            <h4>Problem</h4>
-                            <p>A financial news publisher needed a content platform fast enough for high daily traffic, while still giving editors CMS-level flexibility.</p>
-                        </div>
-                        <div class="case-block">
-                            <h4>Solution</h4>
-                            <p>Worked on Symfony and WordPress-based publishing infrastructure, blending a custom PHP backend with CMS-driven content workflows.</p>
-                        </div>
-                        <div class="case-block">
-                            <h4>Key Features</h4>
-                            <ul class="case-features">
-                                <li>Custom Symfony services</li>
-                                <li>WordPress CMS customization</li>
-                                <li>MySQL content storage</li>
-                                <li>Performance optimization</li>
-                            </ul>
-                        </div>
-                        <div class="case-result">
-                            <h4>Business Result</h4>
-                            <p>Kept a high-traffic financial news platform fast and stable for daily readers while giving the editorial team CMS-level flexibility.</p>
+                        <div class="project-tech">
+                            <span>PHP</span>
+                            <span>CMS customization</span>
+                            <span>MySQL</span>
                         </div>
                     </article>
 
                     <article class="card project-card fade-up">
-                        <div class="project-cover"><i class="devicon-php-plain"></i><span>UTT Project</span></div>
                         <div class="project-top">
-                            <div><h3>UTT Project</h3></div>
+                            <div>
+                                <h3>UTT Project</h3>
+                                <p>Built and maintained Symfony-based application features with attention to performance and scalability.</p>
+                            </div>
                             <span class="pill">Symfony</span>
                         </div>
-                        <div class="case-block">
-                            <h4>Problem</h4>
-                            <p>An existing Symfony application needed new functionality added without degrading performance as usage grew.</p>
-                        </div>
-                        <div class="case-block">
-                            <h4>Solution</h4>
-                            <p>Built and maintained Symfony application features end-to-end, using Doctrine for data modeling and query optimization.</p>
-                        </div>
-                        <div class="case-block">
-                            <h4>Key Features</h4>
-                            <ul class="case-features">
-                                <li>Doctrine ORM data layer</li>
-                                <li>Modular Symfony services</li>
-                                <li>Query performance tuning</li>
-                            </ul>
-                        </div>
-                        <div class="case-result">
-                            <h4>Business Result</h4>
-                            <p>Extended the application's functionality while keeping it scalable and stable under growing user load.</p>
+                        <div class="project-tech">
+                            <span>Doctrine</span>
+                            <span>PHP</span>
+                            <span>Scalable backend</span>
                         </div>
                     </article>
 
                     <article class="card project-card fade-up">
-                        <div class="project-cover"><i class="devicon-vuejs-plain"></i><span>B2B Banking Portal</span></div>
                         <div class="project-top">
-                            <div><h3>B2B Banking Portal</h3></div>
+                            <div>
+                                <h3>B2B Banking Portal</h3>
+                                <p>Enterprise admin portal for secure banking workflows and financial analytics.</p>
+                            </div>
                             <span class="pill">Vue & Laravel</span>
                         </div>
-                        <div class="case-block">
-                            <h4>Problem</h4>
-                            <p>A banking operations team relied on manual reporting and lacked a secure, unified interface to manage workflows and financial data.</p>
-                        </div>
-                        <div class="case-block">
-                            <h4>Solution</h4>
-                            <p>Built an enterprise admin portal with a Vue.js frontend and Laravel powering secure backend workflows and data access.</p>
-                        </div>
-                        <div class="case-block">
-                            <h4>Key Features</h4>
-                            <ul class="case-features">
-                                <li>Role-based admin panel</li>
-                                <li>Chart.js analytics dashboards</li>
-                                <li>Secure banking workflows</li>
-                            </ul>
-                        </div>
-                        <div class="case-result">
-                            <h4>Business Result</h4>
-                            <p>Gave the operations team a single, secure interface to manage banking workflows and monitor financial data in real time.</p>
+                        <div class="project-tech">
+                            <span>Chart.js</span>
+                            <span>Admin panel</span>
+                            <span>Analytics</span>
                         </div>
                     </article>
 
                     <article class="card project-card fade-up">
-                        <div class="project-cover"><i class="devicon-react-original"></i><span>Capexplan</span></div>
                         <div class="project-top">
-                            <div><h3>Capexplan</h3></div>
+                            <div>
+                                <h3>Capexplan</h3>
+                                <p>Capital expenditure management software focused on approvals, tracking, and enterprise planning.</p>
+                            </div>
                             <span class="pill">Symfony 2 & React</span>
                         </div>
-                        <div class="case-block">
-                            <h4>Problem</h4>
-                            <p>Enterprises tracked capital expenditure approvals through spreadsheets and email, with no auditable, structured workflow.</p>
-                        </div>
-                        <div class="case-block">
-                            <h4>Solution</h4>
-                            <p>Built capital expenditure management software on Symfony 2 with a React frontend, covering budgeting, procurement, and multi-step approvals.</p>
-                        </div>
-                        <div class="case-block">
-                            <h4>Key Features</h4>
-                            <ul class="case-features">
-                                <li>Budget planning workflows</li>
-                                <li>Multi-step approval chains</li>
-                                <li>Procurement tracking</li>
-                                <li>Financial reporting modules</li>
-                            </ul>
-                        </div>
-                        <div class="case-result">
-                            <h4>Business Result</h4>
-                            <p>Gave finance teams a structured, auditable approval process for capital spending in place of manual, spreadsheet-driven tracking.</p>
+                        <div class="project-tech">
+                            <span>Budget workflows</span>
+                            <span>Procurement</span>
+                            <span>Financial planning</span>
                         </div>
                     </article>
 
                     <article class="card project-card fade-up">
-                        <div class="project-cover"><i class="devicon-python-plain"></i><span>FastAPI SaaS Platform</span></div>
                         <div class="project-top">
-                            <div><h3>FastAPI SaaS Platform</h3></div>
+                            <div>
+                                <h3>FastAPI SaaS Platform</h3>
+                                <p>Multi-tenant SaaS platform with async APIs, Stripe billing, role-based access, and automated workflows.</p>
+                            </div>
                             <span class="pill">Python & FastAPI</span>
                         </div>
-                        <div class="case-block">
-                            <h4>Problem</h4>
-                            <p>A SaaS product needed multi-tenant architecture with subscription billing and background processing that could scale independently of the web layer.</p>
-                        </div>
-                        <div class="case-block">
-                            <h4>Solution</h4>
-                            <p>Built a multi-tenant SaaS platform on FastAPI with Stripe subscription billing, async REST APIs, and Celery-powered background jobs on AWS.</p>
-                        </div>
-                        <div class="case-block">
-                            <h4>Key Features</h4>
-                            <ul class="case-features">
-                                <li>Stripe subscription billing</li>
-                                <li>Role-based access control</li>
-                                <li>Async REST APIs</li>
-                                <li>Celery + Redis task queues</li>
-                                <li>AWS deployment</li>
-                            </ul>
-                        </div>
-                        <div class="case-result">
-                            <h4>Business Result</h4>
-                            <p>Delivered a billing-ready, multi-tenant foundation that let the product onboard paying customers without re-architecting for each new tenant.</p>
+                        <div class="project-tech">
+                            <span>Stripe</span>
+                            <span>Celery</span>
+                            <span>Redis</span>
+                            <span>AWS</span>
                         </div>
                     </article>
 
                     <article class="card project-card fade-up">
-                        <div class="project-cover"><i class="devicon-django-plain"></i><span>Django Automation Suite</span></div>
                         <div class="project-top">
-                            <div><h3>Django Automation Suite</h3></div>
+                            <div>
+                                <h3>Django Automation Suite</h3>
+                                <p>Automation-focused backend product for reporting, scraping, scheduled jobs, and third-party API workflows.</p>
+                            </div>
                             <span class="pill">Python & Django</span>
                         </div>
-                        <div class="case-block">
-                            <h4>Problem</h4>
-                            <p>Recurring reports, third-party data pulls, and web scraping were being run manually, costing hours of repetitive work every week.</p>
-                        </div>
-                        <div class="case-block">
-                            <h4>Solution</h4>
-                            <p>Built a Django-based automation backend for scheduled jobs, scraping pipelines, and third-party API integrations.</p>
-                        </div>
-                        <div class="case-block">
-                            <h4>Key Features</h4>
-                            <ul class="case-features">
-                                <li>Django REST Framework APIs</li>
-                                <li>Scrapy scraping pipelines</li>
-                                <li>Scheduled task automation</li>
-                                <li>MySQL data storage</li>
-                            </ul>
-                        </div>
-                        <div class="case-result">
-                            <h4>Business Result</h4>
-                            <p>Removed recurring manual reporting and data-collection work by automating it into scheduled, reliable jobs.</p>
-                        </div>
-                    </article>
-
-                    <article class="card project-card fade-up">
-                        <div class="project-cover"><i class="devicon-wordpress-plain"></i><span>OneNoblePharma</span></div>
-                        <div class="project-top">
-                            <div><h3>OneNoblePharma</h3></div>
-                            <span class="pill">WordPress & WooCommerce</span>
-                        </div>
-                        <div class="case-block">
-                            <h4>Problem</h4>
-                            <p>An online pharmacy needed a trustworthy e-commerce storefront where customers could browse medications, pay securely, and get support — critical in a category where trust and compliance matter as much as UX.</p>
-                        </div>
-                        <div class="case-block">
-                            <h4>Solution</h4>
-                            <p>Built a WordPress/WooCommerce e-commerce platform with a full product catalog, secure checkout, and supporting content to build customer trust.</p>
-                        </div>
-                        <div class="case-block">
-                            <h4>Key Features</h4>
-                            <ul class="case-features">
-                                <li>Product catalog with ratings & pricing</li>
-                                <li>User accounts & shopping cart</li>
-                                <li>Secure multi-payment checkout</li>
-                                <li>Health blog & content section</li>
-                                <li>Newsletter signup</li>
-                            </ul>
-                        </div>
-                        <div class="case-result">
-                            <h4>Business Result</h4>
-                            <p>Gave the client a secure, worldwide-shipping storefront with SSL/AWS-backed checkout and trust signals, letting customers order confidently and browse educational content before buying.</p>
-                        </div>
-                    </article>
-
-                    <article class="card project-card fade-up">
-                        <div class="project-cover"><i class="devicon-wordpress-plain"></i><span>Kumbh Visit</span></div>
-                        <div class="project-top">
-                            <div><h3>Kumbh Visit</h3></div>
-                            <span class="pill">WordPress</span>
-                        </div>
-                        <div class="case-block">
-                            <h4>Problem</h4>
-                            <p>Pilgrims traveling to the Nashik Kumbh Mela 2027 — one of the world's largest spiritual gatherings — had no single, reliable place to plan travel, find accommodation, and get safety guidance for millions of expected visitors.</p>
-                        </div>
-                        <div class="case-block">
-                            <h4>Solution</h4>
-                            <p>Built a WordPress travel and pilgrimage information platform covering event schedules, sacred locations, verified stays, and visitor guidance.</p>
-                        </div>
-                        <div class="case-block">
-                            <h4>Key Features</h4>
-                            <ul class="case-features">
-                                <li>Accommodation & stay booking</li>
-                                <li>Event schedule & sacred-site guides</li>
-                                <li>Blogs, videos & FAQs</li>
-                                <li>Travel & crowd-safety advisories</li>
-                            </ul>
-                        </div>
-                        <div class="case-result">
-                            <h4>Business Result</h4>
-                            <p>Gave first-time pilgrims and tourists a trusted, single resource to plan and book their visit to a major once-in-years spiritual event.</p>
+                        <div class="project-tech">
+                            <span>DRF</span>
+                            <span>Scrapy</span>
+                            <span>MySQL</span>
+                            <span>Task scheduling</span>
                         </div>
                     </article>
                 </div>
@@ -1572,10 +1304,6 @@
                         <div class="contact-item">
                             <strong>Upwork</strong>
                             <a href="https://www.upwork.com/freelancers/~01b70d252e318ac52a" target="_blank" rel="noreferrer">View Upwork profile</a>
-                        </div>
-                        <div class="contact-item">
-                            <strong>GitHub</strong>
-                            <a href="https://github.com/SaribMalek" target="_blank" rel="noreferrer">github.com/SaribMalek</a>
                         </div>
                     </div>
                 </div>
